@@ -5,8 +5,10 @@ import path from 'path';
 import bodyparser from 'body-parser';
 import pg from 'pg';
 import dotenv from 'dotenv';
+import 'dotenv/config';
 
-dotenv.config(); 
+
+dotenv.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -19,13 +21,14 @@ app.set('views',path.join(__dirname,'Views'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(bodyparser.urlencoded({extended:true}));
 
-const db = new pg.Client({
+
+const db= new pg.Client({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
+    database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
+    port: process.env.DB_PORT || 5432,
+}); 
 
 db.connect();
 
@@ -60,6 +63,7 @@ app.get('/', (req, res) => {
     let alert = '';
     res.render('home', { country: randomcountry, capital: capital, score: score ,alertMessage: alert, gameOver:gameover });
 });
+
 
 app.post('/', (req, res) => {
     const userAnswer = req.body.capital.trim().toLowerCase();
