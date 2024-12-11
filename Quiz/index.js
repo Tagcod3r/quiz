@@ -28,7 +28,14 @@ const db = new pg.Client({
     port: process.env.DB_PORT || 5432,
 }); 
 
-db.connect();
+db.connect(err => {
+    if (err) {
+        console.error('Database connection error', err.stack);
+    } else {
+        console.log('Database connected successfully');
+    }
+});
+
 
 let CnC = [];
 db.query("SELECT * FROM capital", (err, res) => {
@@ -51,7 +58,7 @@ app.get('/', (req, res) => {
     res.render('home', { country: randomcountry, capital: capital, score: score, alertMessage: alert, gameOver: gameover });
 });
 
-app.post('/', (req, res) => {
+app.post('/submit-answer', (req, res) => {
     const userAnswer = req.body.capital.trim().toLowerCase();
     const correctAnswer = req.body.correctCapital.toLowerCase();
     
