@@ -4,6 +4,9 @@ import { fileURLToPath } from 'url';
 import path from 'path';  
 import bodyparser from 'body-parser';
 import pg from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config(); 
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -16,13 +19,12 @@ app.set('views',path.join(__dirname,'Views'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(bodyparser.urlencoded({extended:true}));
 
-
-const db= new pg.Client({
-    user:"postgres",
-    host:"localhost",
-    database:"countries",
-    password:"postgre",
-    port:"5432",
+const db = new pg.Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
 });
 
 db.connect();
