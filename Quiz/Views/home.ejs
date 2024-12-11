@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="home.css">
   <link rel="icon" href="/map.png" sizes="32x32" type="image/png">
-
-
   <title>Map It Right</title>
 </head>
 <body>
@@ -19,7 +17,8 @@
       <p>What is the capital of <span style="font-weight: 600;"><%= country %></span>?</p>
     </div>
 
-    <form method="POST">
+    <!-- Setting url to backend -->
+    <form method="POST" action="https://map-it-backend.onrender.com/submit-answer">
       <div class="input-section">
         <input type="text" name="capital" placeholder="Enter the capital" autocomplete="off" autofocus required>
         <input type="hidden" name="correctCapital" value="<%= capital %>">
@@ -29,11 +28,9 @@
 
   </div>
   
-
-    <% if (gameOver) { %>
-      <script>alert("<%= alertMessage %> : <%= finals%>");</script>   
-    <% } %>
-  
+  <% if (gameOver) { %>
+    <script>alert("<%= alertMessage %> : <%= finals%>");</script>   
+  <% } %>
   
 </body>
 </html>
