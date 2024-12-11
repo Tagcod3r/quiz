@@ -31,9 +31,10 @@ Map It Right is an interactive quiz game that tests users' knowledge of world ca
  
   ![Screenshot 2024-12-11 192835](https://github.com/user-attachments/assets/0f4c16a4-a47d-46f4-9052-46e513c012d1)
   - **Score updation**
- 
-  ![copy](https://github.com/user-attachments/assets/20d2add1-bb43-4cfa-a854-b245defa5a5e)
 
+  ![Screenshot 2024-12-11 193232](https://github.com/user-attachments/assets/4aaa1cc0-811e-4fc3-9bc8-94885c21e557)
+  ![copy](https://github.com/user-attachments/assets/20d2add1-bb43-4cfa-a854-b245defa5a5e)
+  
   - **Alert Message**
 
   ![Screenshot 2024-12-11 193310](https://github.com/user-attachments/assets/6ac07ffa-a129-44fe-ac6d-ef650ec3926d)
