@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,14 +10,11 @@
 <body>
 
   <div class="quiz-container">
-
     <p>Total Score: <span id="score"><%= score %></span></p>
-
     <div class="question">
       <p>What is the capital of <span style="font-weight: 600;"><%= country %></span>?</p>
     </div>
 
-    <!-- Setting url to backend -->
     <form method="POST" action="https://map-it-backend.onrender.com/submit-answer">
       <div class="input-section">
         <input type="text" name="capital" placeholder="Enter the capital" autocomplete="off" autofocus required>
@@ -29,7 +26,7 @@
   </div>
   
   <% if (gameOver) { %>
-    <script>alert("<%= alertMessage %> : <%= finals%>");</script>   
+    <script>alert("<%= alertMessage %> : <%= finals %>");</script>   
   <% } %>
   
 </body>
