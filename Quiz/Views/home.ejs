@@ -15,7 +15,7 @@
       <p>What is the capital of <span style="font-weight: 600;"><%= country %></span>?</p>
     </div>
 
-    <form method="POST" action="https://map-it-backend.onrender.com/submit-answer">
+    <form method="POST" action="/submit-answer">
       <div class="input-section">
         <input type="text" name="capital" placeholder="Enter the capital" autocomplete="off" autofocus required>
         <input type="hidden" name="correctCapital" value="<%= capital %>">
